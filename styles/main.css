@@ -11,16 +11,17 @@ body {
 }
 
 .title {
-  width: 600px;
+  width: 540px;
   margin: 0 auto;
   padding-top: 20px;
-  text-align: center;
+  padding-right: 60px;
+  text-align: right;
 }
 
 .square {
   width: 100px;
   height: 100px;
-  background-color: #99E6E6;
+  background-color: #ADD8E6;
   border: 1px solid #777777;
   float:left;
   padding: 20px;
@@ -46,9 +47,24 @@ body {
   border-radius: 0px 0px 50px 0px;
 }
 
+footer {
+  float: left;
+  clear: both;
+  background-color: #9ACD32;
+  margin: 0 auto;
+  width: 540px;
+  height: 60px;
+
+}
+
 footer ul {
+  padding: 20px;
+  float: right;
+}
+
+footer li {
   display: inline;
-  padding: 10px;
+  padding: 30px;
 }
 
 
@@ -57,7 +73,7 @@ footer ul {
 .title {
   font-family: 'Luckiest Guy', cursive;
   font-size: 60px;
-  color: #000000;
+  color: #9ACD32;
 
 }
 
@@ -68,6 +84,11 @@ footer ul {
 .square {
   font-family: 'Syncopate', sans-serif;
   text-align: center;
-  color: #006699;
+  color: #008080;
 }
 
+footer {
+  font-family: 'Chivo', sans-serif;
+  font-size: 14px;
+  line-height: 0px;
+}
