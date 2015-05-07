@@ -1,0 +1,73 @@
+/*CSS layout*/
+body {
+  margin: 0 auto;
+}
+
+#gameboard {
+  width: 600px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #3300ff;
+}
+
+.title {
+  width: 600px;
+  margin: 0 auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: #99E6E6;
+  border: 1px solid #777777;
+  float:left;
+  padding: 20px;
+  margin: 20px;
+  font-size: 100px;
+}
+
+#sq4, #sq7 {
+  clear: both;
+}
+
+#sq1 {
+  border-radius: 50px 0px 0px 0px;
+}
+
+#sq3 {
+  border-radius: 0px 50px 0px 0px;
+}
+#sq7 {
+  border-radius: 0px 0px 0px 50px;
+}
+#sq9 {
+  border-radius: 0px 0px 50px 0px;
+}
+
+footer ul {
+  display: inline;
+  padding: 10px;
+}
+
+
+/*CSS Style*/
+
+.title {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 60px;
+  color: #000000;
+
+}
+
+.text {
+  font-family: 'Chivo', sans-serif;
+}
+
+.square {
+  font-family: 'Syncopate', sans-serif;
+  text-align: center;
+  color: #006699;
+}
+
