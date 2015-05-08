@@ -44,10 +44,28 @@ if (Tictactoe.grid[[0,0]] === 1) {
 
 
 
+<<<<<<< Updated upstream
+=======
+var grid = ['', '','',
+            '', '', '',
+            '', '', ''];
 
 
-// function getWinner() {
-// var winner;
+  Tictactoe.getWinner = function (token) {
+  var winner;
+  if (grid[0] === token &&
+      grid[1] === token &&
+      grid[2] === token) {
+      winner = token;
+    } else if () {
+
+    }
+  };
+
+
+>>>>>>> Stashed changes
+
+
 
 // for(var i = 0; i < Tictactoe.moves.length; i++) {
 
