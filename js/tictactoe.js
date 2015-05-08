@@ -1,17 +1,46 @@
 'use strict';
 var Tictactoe = Tictactoe || {};
 
+Tictactoe.players = [1, 2];
 
 var player = 0;
-var players = ['X', 'O'];
-
 function turn() {
   player = 1 - player;
   return player;
 };
 
+Tictactoe.grid = [["", "", ""],
+                  ["", "", ""],
+                  ["", "", ""]];
 
-var grid = [];
+
+var getWinner = function () {
+for (var i = 0; i > Tictactoe.length; i++) {
+if (Tictactoe.grid[[0,0]] === 1) {
+  alert("Winner is X");
+}
+
+}
+
+}
+
+
+// var getWinner = function() {
+//   var winner = false;
+
+//   for (var i = 0; i <Tictactoe.moves.length; i++) {
+
+//   }
+
+
+// };
+
+
+
+
+
+
+
 
 
 

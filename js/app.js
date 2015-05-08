@@ -4,24 +4,28 @@ var Tictactoe = Tictactoe || {};
 
 $(document).ready(function(){
 
-  Tictactoe.moves = [[],[]];
+
 
   $('#gameboard div').on("click", function(e) {
-    turn();
     if (player === 0) {
-      $(this).html("O");
-    } else {
       $(this).html("X");
+    } else {
+      $(this).html("O");
     }
-    $('#yourturn').html('"' + players[player] + '" is your turn!');
+    turn();
 
+    $('#yourturn').html('"' + Tictactoe.players[player] + '" is your turn!');
+    getWinner();
+});
 
+  $('.square').click(function () {
+    var x = $(this).data('row');
+    var y = $(this).data('col');
 
-    Tictactoe.moves.push($(this).attr('id'));
-    console.log(Tictactoe.moves);
+    Tictactoe.grid[x][y] = Tictactoe.players[player];
+    console.log(Tictactoe.grid);
 
   });
-
 
 
 });
