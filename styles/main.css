@@ -1,6 +1,7 @@
 /*CSS layout*/
 body {
-  margin: 0 auto;
+  margin: 0px;
+  padding: 0px;
 }
 
 #gameboard {
@@ -26,7 +27,7 @@ body {
   float:left;
   padding: 20px;
   margin: 5px;
-  font-size: 100px;
+  font-size: 80px;
 }
 
 #sq4, #sq7 {
@@ -41,10 +42,10 @@ body {
   border-radius: 0px 50px 0px 0px;
 }
 #sq7 {
-  border-radius: 0px 0px 0px 50px;
+  border-radius: 0px 0px 0px 0px;
 }
 #sq9 {
-  border-radius: 0px 0px 50px 0px;
+  border-radius: 0px 0px 0px 0px;
 }
 
 footer {
@@ -93,7 +94,7 @@ footer li {
 }
 
 .square {
-  font-family: 'Syncopate', sans-serif;
+  font-family: 'Sniglet', cursive;
   text-align: center;
   color: #008080;
 }
