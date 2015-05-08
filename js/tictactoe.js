@@ -1,32 +1,63 @@
-// the grid
-grid = [[null, null, null],
-        [null, null, null],
-        [null, null, null]];
+'use strict';
+var Tictactoe = Tictactoe || {};
+
+
+var player = 0;
+var players = ['X', 'O'];
+
+function turn() {
+  player = 1 - player;
+  return player;
+};
+
+
+var grid = [];
+
+
+// function getWinner() {
+// var winner;
+
+// for(var i = 0; i < Tictactoe.moves.length; i++) {
+
+
+//   }
+// } //end of for loop
+
+
+// } //end of getWinner
 
 
 
-function place_token (player, row, col) {
-  grid[row][col] = player;
-  console.log(grid);
-}
+// };
 
-
-place_token("X", 1, 0);
-place_token("O", 2, 0);
 
 
 // winner combinations
-// 0,0 + 0,1 + 0,2
-// 1,0 + 1,1 + 1,2
-// 2,0 + 2,1 + 2,2
-// 0,0 + 1,0 + 2,0
-// 0,1 + 1,1 + 2,1
-// 0,2 + 1,2 + 2,2
+// 1, 2, 3
+// 4, 5, 6
+// 7, 8, 9
+// 1, 4, 7
+// 2, 5, 8
+// 3, 6, 9
 // diagonals
-// 0,0 + 1,1 + 2,2
-// 0,2 + 1,1 + 2,0
+// 1, 5, 9
+// 3, 5, 7
+
+// if(Tictactoe.moves[i].indexOf('sq1') !== -1 && Tictactoe.moves[i].indexOf('sq2') !== -1 && Tictactoe.moves[i].indexOf('sq3') !== -1) {
+//   return winner;
+// } else if (Tictactoe.moves[i].indexOf('sq4') !== -1 && Tictactoe.moves[i].indexOf('sq5') !== -1 && Tictactoe.moves[i].indexOf('sq6') !== -1) {
+//     return winner;
+//   } else if (){
 
 
-function clearBoard () {
 
-}
+
+
+
+
+
+
+
+
+
+
