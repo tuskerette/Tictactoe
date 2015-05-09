@@ -4,20 +4,15 @@ var Tictactoe = Tictactoe || {};
 
 $(document).ready(function(){
 
-<<<<<<< Updated upstream
-
-
-
-=======
   Tictactoe.moves = [];
 
 
   $('#gameboard div').on("click", function(e) {
-    turn();
+    Tictactoe.getWinner(token);
+    Tictactoe.turn();
     var token;
     if (player === 0) {
       token = "O";
-
     } else {
       token = "X";
     }
@@ -25,43 +20,22 @@ $(document).ready(function(){
     Tictactoe.moves[$(this).data('index')] = token;
     $(this).html(token);
 
-    if (Tictactoe.getWinner(token)) {
-      return winner;
-    } else {
-      console.log("This could be a tie, but I am not sure yet");
-    };
-
-
-
-    $('#yourturn').html('"' + players[player] + '" is your turn!');
->>>>>>> Stashed changes
+    Tictactoe.getWinner(token);
 
     $('#yourturn').html('"' + Tictactoe.players[player] + '" is your turn!');
-    getWinner();
-});
+    $('#yourturn').html('"' + Tictactoe.players[player] + '" is your turn!');
+    Tictactoe.getWinner();
+  });
 
   $('.square').click(function () {
     var x = $(this).data('row');
     var y = $(this).data('col');
 
-<<<<<<< Updated upstream
-
-=======
-
-
     console.log(Tictactoe.moves);
->>>>>>> Stashed changes
+
 
   });
 
-
-<<<<<<< Updated upstream
-=======
-
-
-
-
->>>>>>> Stashed changes
 });
 
 

@@ -1,10 +1,10 @@
 'use strict';
 var Tictactoe = Tictactoe || {};
 
-Tictactoe.players = [1, 2];
+Tictactoe.players = ["X", "O"];
 
 var player = 0;
-function turn() {
+Tictactoe.turn = function () {
   player = 1 - player;
   return player;
 };
@@ -14,56 +14,46 @@ Tictactoe.grid = [["", "", ""],
                   ["", "", ""]];
 
 
-var getWinner = function () {
-for (var i = 0; i > Tictactoe.length; i++) {
-if (Tictactoe.grid[[0,0]] === 1) {
-  alert("Winner is X");
-}
-
-}
-
-}
-
-
-// var getWinner = function() {
-//   var winner = false;
-
-//   for (var i = 0; i <Tictactoe.moves.length; i++) {
-
-//   }
-
-
-// };
-
-
-
-
-
-
-
-
-
-
-<<<<<<< Updated upstream
-=======
-var grid = ['', '','',
-            '', '', '',
-            '', '', ''];
-
 
   Tictactoe.getWinner = function (token) {
   var winner;
-  if (grid[0] === token &&
-      grid[1] === token &&
-      grid[2] === token) {
+  if (Tictactoe.grid[0] === token &&
+      Tictactoe.grid[1] === token &&
+      Tictactoe.grid[2] === token) {
       winner = token;
-    } else if () {
-
-    }
+    } else if (Tictactoe.grid[3] === token &&
+      Tictactoe.grid[4] === token &&
+      Tictactoe.grid[5] === token) {
+      winner = token;
+    } else if (Tictactoe.grid[6] === token &&
+      Tictactoe.grid[7] === token &&
+      Tictactoe.grid[8] === token) {
+      winner = token;
+    } else if (Tictactoe.grid[0] === token &&
+      Tictactoe.grid[3] === token &&
+      Tictactoe.grid[6] === token) {
+      winner = token;
+    } else if (Tictactoe.grid[1] === token &&
+      Tictactoe.grid[4] === token &&
+      Tictactoe.grid[7] === token) {
+      winner = token;
+    } else if (Tictactoe.grid[2] === token &&
+      Tictactoe.grid[5] === token &&
+      Tictactoe.grid[8] === token) {
+      winner = token;
+    } else if (Tictactoe.grid[0] === token &&
+      Tictactoe.grid[4] === token &&
+      Tictactoe.grid[8] === token) {
+      winner = token;
+    } else if (Tictactoe.grid[2] === token &&
+      Tictactoe.grid[4] === token &&
+      Tictactoe.grid[6] === token) {
+      winner = token;
   };
+  return winner;
+};
 
 
->>>>>>> Stashed changes
 
 
 
