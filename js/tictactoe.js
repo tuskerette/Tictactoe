@@ -10,13 +10,8 @@ Tictactoe.turn = function () {
   return player;
 };
 
-
-// TDD attempt at creating the checkForWinner function
-// Tictactoe.checkForWinner = function(token) {
-//   var winner;
-//   return winner;
-// };
-
+// make a property of the object called game over equals to false by default and flags the winning cases and the tie case becoming true.
+Tictactoe.gameOver = false;
 
 // make a function to determine the winner
 Tictactoe.checkForWinner = function(token) {
@@ -62,29 +57,25 @@ Tictactoe.checkForWinner = function(token) {
       winner = token;
       alert("Congratulations " + token + ", you won!");
     }
-    return function() {
-    if(!winner && Tictactoe.turnCount === 9) {
-      alert("Rematch?");
-    } else {
-    return winner;
+    if(winner) {
+      Tictactoe.gameOver = true;
     }
+    return winner;
   };
+
+
+Tictactoe.endOfGame = function() {
+  if (Tictactoe.count === 9) {
+    Tictactoe.gameOver = true;
+  }
 };
 
 
-// creates a variable that keep count of the turns
-    Tictactoe.turnCount = function(){
-    var count = [];
-      for (var i = 0; i < Tictactoe.turn.length; i ++) {
-        count += 1;
-      };
-      return count;
+// make a function to clear the board and restart the game.
+// A button appears in app.js when either checkForWinner is true or countTurns === 9 === true;
+Tictactoe.resetGame = function() {
+
 }
-console.log(Tictactoe.turnCount());
-
-
-// make a function to clear the board. A button will appear when the case is matched: checkForWinner is true or tie.
-// Clear the board and restarts the game
 
 
 
