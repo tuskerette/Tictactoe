@@ -63,7 +63,7 @@ Tictactoe.checkForWinner = function(token) {
     return winner;
   };
 
-
+// make a function that determines if it is a tie
 Tictactoe.endOfGame = function() {
   if (Tictactoe.count === 9) {
     Tictactoe.gameOver = true;
@@ -71,11 +71,8 @@ Tictactoe.endOfGame = function() {
 };
 
 
-// make a function to clear the board and restart the game.
 // A button appears in app.js when either checkForWinner is true or countTurns === 9 === true;
-Tictactoe.resetGame = function() {
 
-}
 
 
 

@@ -33,7 +33,7 @@ $(document).ready(function(){
     Tictactoe.count++;
     Tictactoe.endOfGame();
 
-// at the end of the game (we have a winner or it is a tie) a button appears instead of the take turn prompt.
+// at the end of the game (we have a winner or it is a tie) a button appears instead of the take turn line.
 if (Tictactoe.gameOver === true) {
   $('#yourturn').html('<button type="button">REMATCH?!</button>');
 }
