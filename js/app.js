@@ -23,7 +23,7 @@ $(document).ready(function(){
 // add the moves to the moves array and determines which player played that square
     Tictactoe.moves[$(this).data('index')] = token;
 
-// puts the token in the div, that is one spot
+// puts the token in the div, that is one available spot
     $(this).html(token);
 
 // message to prompt the current play to place a token
@@ -37,7 +37,8 @@ $(document).ready(function(){
 
 // at the end of the game (we have a winner or it is a tie) a button appears instead of the take turn line.
 if (Tictactoe.gameOver) {
-  $('#yourturn').html('<button type="button">REMATCH?!</button>');
+  $('#yourturn').html('<button type="button" id="rematch">REMATCH?</button>');
+  $('#yourturn').addClass('animated bounce');
 }
 });
 

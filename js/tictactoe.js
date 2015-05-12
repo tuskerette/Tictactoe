@@ -50,7 +50,9 @@ Tictactoe.checkForWinner = function(token) {
       winner = token;
     }
     if(winner) {
-      alert("Congratulations " + token + ", you won!");
+      $('#winner').show();
+      $('#winner').addClass('animated bounce');
+      $('#winner').html('"' + token + '" WINS!');
       Tictactoe.gameOver = true;
     }
     return winner;
@@ -62,10 +64,6 @@ Tictactoe.endOfGame = function() {
     Tictactoe.gameOver = true;
   }
 };
-
-
-// A button appears in app.js when either checkForWinner is true or countTurns === 9 === true;
-
 
 
 

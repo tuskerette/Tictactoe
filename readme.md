@@ -1,1 +1,3 @@
-This is the Read Me file for Tic Tac Toe by Valeria Graffeo.
+Tic Tac Toe version 1.0 5/15/15
+
+
