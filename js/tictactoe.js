@@ -11,6 +11,13 @@ Tictactoe.turn = function () {
 };
 
 
+// TDD attempt at creating the checkForWinner function
+// Tictactoe.checkForWinner = function(token) {
+//   var winner;
+//   return winner;
+// };
+
+
 // make a function to determine the winner
 Tictactoe.checkForWinner = function(token) {
   var winner;
@@ -56,13 +63,28 @@ Tictactoe.checkForWinner = function(token) {
       alert("Congratulations " + token + ", you won!");
     }
     return function() {
-    if(winner === false) {
+    if(!winner && Tictactoe.turnCount === 9) {
       alert("Rematch?");
     } else {
     return winner;
     }
   };
 };
+
+
+// creates a variable that keep count of the turns
+    Tictactoe.turnCount = function(){
+    var count = [];
+      for (var i = 0; i < Tictactoe.turn.length; i ++) {
+        count += 1;
+      };
+      return count;
+}
+console.log(Tictactoe.turnCount());
+
+
+// make a function to clear the board. A button will appear when the case is matched: checkForWinner is true or tie.
+// Clear the board and restarts the game
 
 
 
