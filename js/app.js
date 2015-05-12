@@ -1,5 +1,7 @@
 
 'use strict';
+var myDataRef = new Firebase('https://rfvdorq5z99.firebaseio-demo.com/');
+
 var Tictactoe = Tictactoe || {};
 
 $(document).ready(function(){
@@ -34,7 +36,7 @@ $(document).ready(function(){
     Tictactoe.endOfGame();
 
 // at the end of the game (we have a winner or it is a tie) a button appears instead of the take turn line.
-if (Tictactoe.gameOver === true) {
+if (Tictactoe.gameOver) {
   $('#yourturn').html('<button type="button">REMATCH?!</button>');
 }
 });

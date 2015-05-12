@@ -26,6 +26,14 @@ body {
   text-align: right;
 }
 
+#yourturn {
+  padding-top: 0px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  width: 440px;
+  height: 20px;
+}
+
 .square {
   width: 100px;
   height: 100px;
@@ -76,15 +84,6 @@ footer li {
   padding: 8px;
 }
 
-#yourturn {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  width: 440px;
-  height: 20px;
-}
-
-
 /*CSS Style*/
 
 .title {
@@ -99,7 +98,7 @@ footer li {
 }
 
 .square {
-  font-family: 'Sniglet', cursive;
+  font-family: 'Sniglet', serif;
   text-align: center;
   color: #008080;
   background-color: #ADD8E6;
@@ -110,7 +109,7 @@ footer li {
   font-size: 20px;
   color: navy;
   letter-spacing: 5px;
-  text-align: center;
+  text-align: left;
 
 }
 
@@ -125,9 +124,10 @@ button {
   font-family: 'Chivo', sans-serif;
   color: #FFF;
   margin-top: 200px;
+  margin-left: 5px;
   font-size: 40px;
   padding: 20px;
-  width: 400px;
+  width: 420px;
   height: 100px;
   text-align: center;
   background-color: #9ACD32;
