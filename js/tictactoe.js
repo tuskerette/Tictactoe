@@ -1,26 +1,26 @@
 'use strict';
 var Tictactoe = Tictactoe || {};
 
-// determine the players and
-// make a function to alternate the turns
 Tictactoe.player = 0;
 Tictactoe.players = ["X", "O"];
-// Make a property of the object called game over equals to false by default and flags the winning cases and the tie case becoming true.
+// gameOver becomes true when we have a winner or it is a tie
 Tictactoe.gameOver = false;
 
+// score counters
+Tictactoe.xScore = 0;
+Tictactoe.oScore = 0;
+
+// function to alternate the turns between players
 Tictactoe.turn = function () {
   Tictactoe.player = 1 - Tictactoe.player;
   return Tictactoe.player;
 };
 
 
-// The click event ---> the game
 Tictactoe.game = function () {
-// It builds an array where the moves will be stored.
-// made a variable to keep track of the moves. Will be used to
-// determine if a game is a tie.
-
+// Array where the moves will be stored.
   Tictactoe.moves = [];
+// variable used to check if the game is a tie.
   Tictactoe.count = 0;
 // determine whose turn it is, and places the token only once per div
   $('#gameboard div').one("click", function(e) {
@@ -31,7 +31,7 @@ Tictactoe.game = function () {
 // Add the moves to the moves array and determines which player
 // played that square
   Tictactoe.moves[$(this).data('index')] = token;
-// puts the token in the div, that is one available spot
+// puts the token in the spot
   $(this).html(token);
 // message to prompt the current play to place a token
   $('#yourturn').html('"' + Tictactoe.players[Tictactoe.player] + '" it is your turn!');
@@ -44,7 +44,7 @@ Tictactoe.game = function () {
   Tictactoe.endOfGame();
 
 
-// At the end of the game (we have a winner or it is a tie) a button appears instead of the take turn line.
+// At the end of the game (we have a winner or it is a tie) a rematch button apperars.
     if (Tictactoe.gameOver) {
     $('#yourturn').hide();
     $('#rematch').show();
@@ -54,9 +54,7 @@ Tictactoe.game = function () {
   });
 };
 
-
-
-// function to determine the winner
+// function with the winning combinations
 Tictactoe.checkForWinner = function(token) {
   var winner;
     if (Tictactoe.moves[0] === token &&
@@ -97,11 +95,20 @@ Tictactoe.checkForWinner = function(token) {
       $('#winner').addClass('animated bounce');
       $('#winner').html('"' + token + '" WINS!');
       Tictactoe.gameOver = true;
+
+        if(winner === "X") {
+        Tictactoe.xScore++;
+        $('#xscore').html(Tictactoe.xScore);
+          } else if (winner === "O") {
+        Tictactoe.oScore++;
+        $('#oscore').html(Tictactoe.oScore);
+        }
     }
+
     return winner;
   };
 
-// make a function that determines if it is a tie
+// function that determines if it is a tie
 Tictactoe.endOfGame = function() {
   if (Tictactoe.count === 9) {
     Tictactoe.gameOver = true;
@@ -125,9 +132,7 @@ Tictactoe.clearGame = function() {
 
 
 
-
-
-// flip coin function showing heads or tails
+// flip coin function with the coins set to heads or tails
 Tictactoe.flipcoin = function() {
   $('.flipcoin').show();
   $('#coin').addClass('animated flip');
