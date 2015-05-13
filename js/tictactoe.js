@@ -74,17 +74,17 @@ Tictactoe.flipcoin = function() {
   }
   var win = getRandom();
   if (win >= 0.5) {
-    win = "(◠‿◠)";
+    win = "Heads";
   } else {
-    win = "♬ ♬";
+    win = "Tails";
   }
 
   $('#coin').one("click", function() {
-    $('#coin').html('<br />' + win);
+    $('#coin').html('<h2><br />' + win + '</h2>');
   });
 
   $('#close').show();
-  $('#close').html("Let's play! Click here");
+  $('#close').html("Alright, let's play!");
   $('#close').on("click", function() {
    $('.flipcoin').hide();
  });
