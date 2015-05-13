@@ -3,17 +3,60 @@ var Tictactoe = Tictactoe || {};
 
 // determine the players and
 // make a function to alternate the turns
+Tictactoe.player = 0;
 Tictactoe.players = ["X", "O"];
-var player = 0;
-Tictactoe.turn = function () {
-  player = 1 - player;
-  return player;
-};
-
-// make a property of the object called game over equals to false by default and flags the winning cases and the tie case becoming true.
+// Make a property of the object called game over equals to false by default and flags the winning cases and the tie case becoming true.
 Tictactoe.gameOver = false;
 
-// make a function to determine the winner
+Tictactoe.turn = function () {
+  Tictactoe.player = 1 - Tictactoe.player;
+  return Tictactoe.player;
+};
+
+
+// The click event ---> the game
+Tictactoe.game = function () {
+// It builds an array where the moves will be stored.
+// made a variable to keep track of the moves. Will be used to
+// determine if a game is a tie.
+
+  Tictactoe.moves = [];
+  Tictactoe.count = 0;
+// determine whose turn it is, and places the token only once per div
+  $('#gameboard div').one("click", function(e) {
+    Tictactoe.turn();
+    var token;
+    Tictactoe.player ? token = "X" : token = "O";
+
+// Add the moves to the moves array and determines which player
+// played that square
+  Tictactoe.moves[$(this).data('index')] = token;
+// puts the token in the div, that is one available spot
+  $(this).html(token);
+// message to prompt the current play to place a token
+  $('#yourturn').html('"' + Tictactoe.players[Tictactoe.player] + '" it is your turn!');
+  $('#yourturn').html('"' + Tictactoe.players[Tictactoe.player] + '" it is your turn!');
+
+
+// Checks for winner and finish the game
+  Tictactoe.checkForWinner(token);
+  Tictactoe.count++;
+  Tictactoe.endOfGame();
+
+
+// At the end of the game (we have a winner or it is a tie) a button appears instead of the take turn line.
+    if (Tictactoe.gameOver) {
+    $('#yourturn').hide();
+    $('#rematch').show();
+    $('#rematch').html('REMATCH?');
+    $('#rematch').addClass('animated bounce');
+    }
+  });
+};
+
+
+
+// function to determine the winner
 Tictactoe.checkForWinner = function(token) {
   var winner;
     if (Tictactoe.moves[0] === token &&
@@ -66,9 +109,29 @@ Tictactoe.endOfGame = function() {
 };
 
 
+// reset the board
+Tictactoe.clearGame = function() {
+  $('#rematch').hide();
+  $('#winner').hide();
+  $('#yourturn').show();
+  $('#gameboard div').html('');
+  $('#yourturn').text('Game start! "X" it is your turn!');
+  $('#gameboard div').unbind();
+  this.gameOver = false;
+  this.moves = [];
+  this.count = 0;
+  this.player = 0;
+}
+
+
+
+
+
+// flip coin function showing heads or tails
 Tictactoe.flipcoin = function() {
   $('.flipcoin').show();
   $('#coin').addClass('animated flip');
+
   var getRandom = function() {
     return Math.random();
   }
@@ -79,27 +142,14 @@ Tictactoe.flipcoin = function() {
     win = "Tails";
   }
 
-  $('#coin').one("click", function() {
+  setTimeout(function(){
+    getRandom();
     $('#coin').html('<h2><br />' + win + '</h2>');
-  });
+    }, 2000);
 
   $('#close').show();
-  $('#close').html("Alright, let's play!");
+  $('#close').text("OK, let's play! Click here.");
   $('#close').on("click", function() {
-   $('.flipcoin').hide();
+  $('.flipcoin').hide();
  });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
