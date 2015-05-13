@@ -5,6 +5,12 @@ var myDataRef = new Firebase('https://rfvdorq5z99.firebaseio-demo.com/');
 var Tictactoe = Tictactoe || {};
 
 $(document).ready(function(){
+// before the game starts, we show the flipcoin div to decide who goes
+// first (is player "X")
+Tictactoe.flipcoin();
+
+
+
 // builds an array where the moves will be stored.
 // made a variable to keep track of the moves. Will be used to
 // determine if a game is a tie.

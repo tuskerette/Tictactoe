@@ -66,8 +66,29 @@ Tictactoe.endOfGame = function() {
 };
 
 
+Tictactoe.flipcoin = function() {
+  $('.flipcoin').show();
+  $('#coin').addClass('animated flip');
+  var getRandom = function() {
+    return Math.random();
+  }
+  var win = getRandom();
+  if (win >= 0.5) {
+    win = "(◠‿◠)";
+  } else {
+    win = "♬ ♬";
+  }
 
+  $('#coin').one("click", function() {
+    $('#coin').html('<br />' + win);
+  });
 
+  $('#close').show();
+  $('#close').html("Let's play! Click here");
+  $('#close').on("click", function() {
+   $('.flipcoin').hide();
+ });
+}
 
 
 
