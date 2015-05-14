@@ -37,6 +37,9 @@
 * **Colophon**
   - This app was developed by Valeria Graffeo as first project assignment in the Web Develoment Immersive Course at General Assembly Boston in May 2015.
 
+* **Required Notes**
+  - The work-in-progress notes required by the assignment are available at notes/notes.html
+
 
 
 
