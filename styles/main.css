@@ -267,7 +267,7 @@ footer {
   font-family: 'Chivo', sans-serif;
   color: #FFF;
   text-align: center;
-  background-color: #9ACD32;
+  background-color: rgba(154, 205, 50, 0.9);
   letter-spacing: 5px;
 }
 
@@ -275,7 +275,7 @@ footer {
   font-family: 'Chivo', sans-serif;
   color: #FFF;
   text-align: center;
-  background-color: #FF99CC;
+  background-color: rgba(255, 153, 204, 0.9);
   letter-spacing: 5px;
 }
 

@@ -10,9 +10,10 @@ Tictactoe.gameOver = false;
 Tictactoe.xScore = 0;
 Tictactoe.oScore = 0;
 
-// //set a counter for the number of games
-// Tictactoe.numOfGames = 0;
-
+// //set a counter for the number of games, and the newPlayer variable
+// to tell who is the starting player in the games after the first one.
+Tictactoe.numOfGames = 0;
+Tictactoe.newPlayer = "";
 // set a variable to store the bet
 Tictactoe.bet = "";
 
@@ -48,7 +49,7 @@ Tictactoe.game = function () {
   Tictactoe.checkForWinner(token);
   Tictactoe.count++;
   Tictactoe.tieGame();
-  // Tictactoe.numOfGames++;
+  Tictactoe.numOfGames++;
 
 
 // At the end of the game (we have a winner or it is a tie) a rematch button apperars.
@@ -59,19 +60,19 @@ Tictactoe.game = function () {
     $('#rematch').addClass('animated bounce');
     }
   });
-
-
-
 };
 
+
 // // function to decide who starts. It alternates between games
-// Tictactoe.whoStarts = function() {
-//     if ((Tictactoe.player === 1) && (Tictactoe.numOfGames % 2 === 0)) {
-//       this.token = "X";
-//       } else {
-//       this.token = "O";
-//     }
-//   }
+Tictactoe.whoStarts = function() {
+    if (Tictactoe.numOfGames % 2 === 0) {
+      Tictactoe.newPlayer = "X";
+      } else {
+      Tictactoe.newPlayer = "O";
+    }
+    return Tictactoe.newPlayer;
+  }
+
 
 // function with the winning combinations
 Tictactoe.checkForWinner = function(token) {
@@ -139,7 +140,7 @@ Tictactoe.clearGame = function() {
   $('#winner').hide();
   $('#gameboard div').html('');
   $('#yourturn').show();
-  $('#yourturn').html('"O" it is your turn!');
+  $('#yourturn').html('"' + Tictactoe.whoStarts() + '" it is your turn!');
   $('#gameboard div').unbind();
   this.gameOver = false;
   this.moves = [];
@@ -216,10 +217,10 @@ Tictactoe.champion = function() {
 
   if (Tictactoe.xScore === 3) {
     $('.firstscreen').show();
-    $('.firstscreen').html('<p><br /><br /><h1>"O",<br /> you owe me <br />' + this.bet + '!</h1></p>');
+    $('.firstscreen').html('<p><br /><br /><h1>"O"<br /> you owe me <br />' + this.bet + '!</h1></p>');
   } else if (Tictactoe.oScore === 3) {
     $('.firstscreen').show();
-    $('.firstscreen').html('<p><br /><br /><h1>"X",<br /> you owe me <br />' + this.bet + '!</h1></p>');
+    $('.firstscreen').html('<p><br /><br /><h1>"X"<br /> you owe me <br />' + this.bet + '!</h1></p>');
   }
 $('.firstscreen').on("click", function() {
   location.reload();
