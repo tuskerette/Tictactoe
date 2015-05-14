@@ -1,23 +1,25 @@
 'use strict';
 var Tictactoe = Tictactoe || {};
 
+// Defining the player
 Tictactoe.player = 0;
 Tictactoe.players = ["X", "O"];
-// gameOver becomes true when we have a winner or it is a tie
+// GameOver becomes true when we have a winner or it is a tie
 Tictactoe.gameOver = false;
 
-// score counters
+// Players' score counters
 Tictactoe.xScore = 0;
 Tictactoe.oScore = 0;
 
-// //set a counter for the number of games, and the newPlayer variable
+// Set a counter for the number of games, and the newPlayer variable
 // to tell who is the starting player in the games after the first one.
 Tictactoe.numOfGames = 0;
 Tictactoe.newPlayer = "";
-// set a variable to store the bet
+
+// Set a variable to store the bet
 Tictactoe.bet = "";
 
-// function to alternate the turns between players
+// Function to alternate the turns between players
 Tictactoe.turn = function () {
   Tictactoe.player = 1 - Tictactoe.player;
   return Tictactoe.player;
@@ -63,7 +65,7 @@ Tictactoe.game = function () {
 };
 
 
-// // function to decide who starts. It alternates between games
+// Function to decide who starts. It alternates between games
 Tictactoe.whoStarts = function() {
     if (Tictactoe.numOfGames % 2 === 0) {
       Tictactoe.newPlayer = "X";
@@ -74,7 +76,8 @@ Tictactoe.whoStarts = function() {
   }
 
 
-// function with the winning combinations
+// Function with the winning combinations that returns a winner,
+// if a condition is met
 Tictactoe.checkForWinner = function(token) {
   var winner;
     if (Tictactoe.moves[0] === token &&
@@ -127,14 +130,14 @@ Tictactoe.checkForWinner = function(token) {
     return winner;
   };
 
-// function that determines if it is a tie
+// Function that determines if it is a tie
 Tictactoe.tieGame = function() {
   if (Tictactoe.count === 9) {
     Tictactoe.gameOver = true;
   };
 };
 
-// reset the board
+// Function to reset the board
 Tictactoe.clearGame = function() {
   $('#rematch').hide();
   $('#winner').hide();
@@ -150,7 +153,7 @@ Tictactoe.clearGame = function() {
 
 
 
-// first slide, welcome and set the bet
+// First slide, welcome and set the bet
 Tictactoe.letsBet = function() {
   $('.firstscreen').show();
   $('.firstscreen').prepend("<p><h1><strong>Welcome!</strong></h1></p><p>Let's play, but first,<br />let's make things more interesting...<br />Let's bet something.</p>");
@@ -166,7 +169,7 @@ Tictactoe.letsBet = function() {
 };
 
 
-// second slide, deciding who goes first
+// Second slide, deciding who goes first
 Tictactoe.whoGoesFirst = function() {
 $('.firstscreen').unbind();
 $('.firstscreen').html("<p>OK, you are playing for<br /><h3>" + this.bet + "!!!</h3>WOW, that's a good one! <br />Who goes first?<br />To make it fair, let's flip a coin.</p>" );
@@ -183,11 +186,10 @@ $('#coin').on("click", function() {
 
 
 
-// third slide, flipping the coin
+// Third slide, flipping the coin
 Tictactoe.flipcoin = function() {
   $('#coin').removeClass('animated pulse');
   $('#coin').addClass('animated flip');
-  // $('#close').show();
   var getRandom = function() {
     return Math.random();
   }
@@ -212,7 +214,7 @@ Tictactoe.flipcoin = function() {
  });
 };
 
-// last slide, the champion wins the prize
+// Last slide, the champion wins the prize
 Tictactoe.champion = function() {
 
   if (Tictactoe.xScore === 3) {
