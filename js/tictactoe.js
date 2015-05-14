@@ -217,10 +217,10 @@ Tictactoe.champion = function() {
 
   if (Tictactoe.xScore === 3) {
     $('.firstscreen').show();
-    $('.firstscreen').html('<p><br /><br /><h1>"O"<br /> you owe me <br />' + this.bet + '!</h1></p>');
+    $('.firstscreen').html('<p><br /><br /><h1>REMATCH?!?<br />WHAT?<br />NO REMATCH!<br />"O"<br /> You owe me<br />' + this.bet + '!</h1></p>');
   } else if (Tictactoe.oScore === 3) {
     $('.firstscreen').show();
-    $('.firstscreen').html('<p><br /><br /><h1>"X"<br /> you owe me <br />' + this.bet + '!</h1></p>');
+    $('.firstscreen').html('<p><br /><br /><h1>REMATCH?!?<br />WHAT?<br />NO REMATCH!<br />"X"<br /> You owe me<br />' + this.bet + '!</h1></p>');
   }
 $('.firstscreen').on("click", function() {
   location.reload();
