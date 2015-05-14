@@ -10,6 +10,12 @@ Tictactoe.gameOver = false;
 Tictactoe.xScore = 0;
 Tictactoe.oScore = 0;
 
+// //set a counter for the number of games
+// Tictactoe.numOfGames = 0;
+
+// set a variable to store the bet
+Tictactoe.bet = "";
+
 // function to alternate the turns between players
 Tictactoe.turn = function () {
   Tictactoe.player = 1 - Tictactoe.player;
@@ -41,18 +47,31 @@ Tictactoe.game = function () {
 // Checks for winner and finish the game
   Tictactoe.checkForWinner(token);
   Tictactoe.count++;
-  Tictactoe.endOfGame();
+  Tictactoe.tieGame();
+  // Tictactoe.numOfGames++;
 
 
 // At the end of the game (we have a winner or it is a tie) a rematch button apperars.
-    if (Tictactoe.gameOver) {
+  if (Tictactoe.gameOver) {
     $('#yourturn').hide();
     $('#rematch').show();
     $('#rematch').html('REMATCH?');
     $('#rematch').addClass('animated bounce');
     }
   });
+
+
+
 };
+
+// // function to decide who starts. It alternates between games
+// Tictactoe.whoStarts = function() {
+//     if ((Tictactoe.player === 1) && (Tictactoe.numOfGames % 2 === 0)) {
+//       this.token = "X";
+//       } else {
+//       this.token = "O";
+//     }
+//   }
 
 // function with the winning combinations
 Tictactoe.checkForWinner = function(token) {
@@ -104,39 +123,70 @@ Tictactoe.checkForWinner = function(token) {
         $('#oscore').html(Tictactoe.oScore);
         }
     }
-
     return winner;
   };
 
 // function that determines if it is a tie
-Tictactoe.endOfGame = function() {
+Tictactoe.tieGame = function() {
   if (Tictactoe.count === 9) {
     Tictactoe.gameOver = true;
-  }
+  };
 };
-
 
 // reset the board
 Tictactoe.clearGame = function() {
   $('#rematch').hide();
   $('#winner').hide();
-  $('#yourturn').show();
   $('#gameboard div').html('');
-  $('#yourturn').text('Game start! "X" it is your turn!');
+  $('#yourturn').show();
+  $('#yourturn').html('"O" it is your turn!');
   $('#gameboard div').unbind();
   this.gameOver = false;
   this.moves = [];
   this.count = 0;
-  this.player = 0;
-}
+};
 
 
 
-// flip coin function with the coins set to heads or tails
+
+// first slide, welcome and set the bet
+Tictactoe.letsBet = function() {
+  $('.firstscreen').show();
+  $('.firstscreen').prepend("<p><h1><strong>Welcome!</strong></h1></p><p>Let's play, but first,<br />let's make things more interesting...<br />Let's bet something.</p>");
+  $('#bet').show();
+  $('.firstscreen').append('<div id="firsttothree"></div>');
+  $('#firsttothree').append("* The player who wins 3 games is the winner.");
+  $('input[name="bet"]').keypress(function(e) {
+   if(e.which == 13) {
+    Tictactoe.bet = $(this).val().toUpperCase();
+      Tictactoe.whoGoesFirst();
+    }
+  });
+};
+
+
+// second slide, deciding who goes first
+Tictactoe.whoGoesFirst = function() {
+$('.firstscreen').unbind();
+$('.firstscreen').html("<p>OK, you are playing for<br /><h3>" + this.bet + "!!!</h3>WOW, that's a good one! <br />Who goes first?<br />To make it fair, let's flip a coin.</p>" );
+$('.firstscreen').append('<div id="coin"></div>');
+$('.firstscreen').append('<div id="close"></div>');
+$('#coin').addClass('animated pulse');
+$('#close').html("Heads or Tails?<br />Flip the coin");
+$('#close').addClass('animated flip');
+$('#coin').on("click", function() {
+  $('.theprize span').html(Tictactoe.bet);
+  Tictactoe.flipcoin();
+  });
+};
+
+
+
+// third slide, flipping the coin
 Tictactoe.flipcoin = function() {
-  $('.flipcoin').show();
+  $('#coin').removeClass('animated pulse');
   $('#coin').addClass('animated flip');
-
+  // $('#close').show();
   var getRandom = function() {
     return Math.random();
   }
@@ -150,11 +200,28 @@ Tictactoe.flipcoin = function() {
   setTimeout(function(){
     getRandom();
     $('#coin').html('<h2><br />' + win + '</h2>');
-    }, 2000);
+    }, 1500);
 
-  $('#close').show();
-  $('#close').text("OK, let's play! Click here.");
+
+  $('#close').html("OK, let's play! <br />Click to start.");
   $('#close').on("click", function() {
-  $('.flipcoin').hide();
+    $('.firstscreen').hide();
+    $('.firstscreen').unbind();
+    Tictactoe.game();
  });
-}
+};
+
+// last slide, the champion wins the prize
+Tictactoe.champion = function() {
+
+  if (Tictactoe.xScore === 3) {
+    $('.firstscreen').show();
+    $('.firstscreen').html('<p><br /><br /><h1>"O",<br /> you owe me <br />' + this.bet + '!</h1></p>');
+  } else if (Tictactoe.oScore === 3) {
+    $('.firstscreen').show();
+    $('.firstscreen').html('<p><br /><br /><h1>"X",<br /> you owe me <br />' + this.bet + '!</h1></p>');
+  }
+$('.firstscreen').on("click", function() {
+  location.reload();
+});
+};

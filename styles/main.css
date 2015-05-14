@@ -1,4 +1,4 @@
-/*CSS layout*/
+/*Layout and positioning*/
 body {
   margin: 0px;
   padding: 0px;
@@ -10,37 +10,42 @@ body {
   margin: 0 auto;
 }
 
-.flipcoin {
+.firstscreen {
   position: absolute;
   margin-top: 0px;
-  margin-left: 18px;
-  width: 380px;
-  height: 470px;
+  margin-left: 0px;
+  width: 410px;
+  height: 570px;
   border: 0px;
   border-radius: 20px 20px 20px 20px;
   font-size: 20px;
   padding: 20px;
+  display: none;
+}
+
+#bet {
+  display: none;
 }
 
 #coin {
   position: absolute;
   margin-top: 20px;
-  margin-left: 90px;
+  margin-left: 100px;
   width: 200px;
   height: 200px;
   background-color: #999;
   border-radius: 100px;
+
 }
 
 #close {
-  background-color: #008080;
-  margin-top: 240px;
-  display: none;
+  margin-top: 280px;
   padding: 10px;
 }
-.heorta {
-  color: #008080;
-  margin-top: 40px;
+
+#firsttothree {
+  margin-top: 150px;
+  padding: 10px;
 }
 
 #gameboard {
@@ -48,16 +53,6 @@ body {
   height: 100%;
   margin: 0 auto;
 }
-
-/*.chat {
-  position: absolute;
-  margin-left: 500px;
-  margin-top: 50px;
-  width: 300px;
-  height: 400px;
-  background-color: #333;
-
-}*/
 
 .title {
   width: 440px;
@@ -106,7 +101,6 @@ body {
 .score {
   float: left;
   clear: both;
-  background-color: #FF3399;
   margin-left: 5px;
   width: 440px;
   height: 50px;
@@ -119,17 +113,27 @@ body {
   display: inline;
 }
 
+
+.theprize {
+  float: left;
+  clear: both;
+  margin-left: 5px;
+  width: 440px;
+  height: 50px;
+  margin-top: 5px;
+  padding-top: 20px;
+}
+
+
 footer {
   float: left;
   clear: both;
   background-color: #9ACD32;
-  padding-right: 0px;
   padding-bottom: 10px;
   margin-top: 10px;
   margin-left: 5px;
   width: 440px;
   height: 46px;
-
 }
 
 footer ul {
@@ -153,7 +157,6 @@ footer li {
   border: 0px;
   border-radius: 20px 20px 20px 20px;
   display: none;
-
 }
 
 #winner {
@@ -171,17 +174,51 @@ footer li {
 
 
 
-/*CSS Style*/
+
+
+
+/*Styles*/
 
 .title {
   font-family: 'Luckiest Guy', sans-serif;
   font-size: 58px;
   color: #9ACD32;
-
 }
 
 .text {
   font-family: 'Chivo', sans-serif;
+}
+
+.firstscreen {
+  font-family: 'Chivo', sans-serif;
+  color: #008080;
+  text-align: center;
+  background-color: #FF99CC;
+  letter-spacing: 5px;
+}
+
+input[type="text"] {
+  margin-top: 70px;
+  border: 0px;
+  height: 20px;
+  width: 200px;
+  font-size: 14px;
+
+}
+
+#coin {
+  font-family: 'Luckiest Guy', sans-serif;
+  font-size: 30px;
+}
+
+#close  {
+  color: #FFF;
+  background-color: #008080;
+}
+
+#firsttothree  {
+  color: #FFF;
+  background-color: #008080;
 }
 
 .square {
@@ -197,13 +234,13 @@ footer li {
   color: navy;
   letter-spacing: 5px;
   text-align: left;
-
 }
 
 footer {
   font-family: 'Chivo', sans-serif;
   font-size: 14px;
   color: #000000;
+  line-height: 12px;
 }
 
 .score {
@@ -211,7 +248,19 @@ footer {
   font-size: 18px;
   line-height: 16px;
   color: #333;
+  background-color: #FF3399;
+}
+
+.theprize {
+  font-family: 'Chivo', sans-serif;
+  font-size: 14px;
+  color: #008080;
   text-align: center;
+  background-color: #ADD8E6;
+}
+.theprize span {
+  font-size: 18px;
+  color: #333;
 }
 
 #rematch {
@@ -230,22 +279,6 @@ footer {
   letter-spacing: 5px;
 }
 
-.flipcoin {
-  font-family: 'Chivo', sans-serif;
-  color: #FFF;
-  text-align: center;
-  background-color: #FF99CC;
-  letter-spacing: 5px;}
-
-#coin {
-  font-family: 'Luckiest Guy', sans-serif;
-  font-size: 30px;
-}
-
-.heorta {
-  text-align: center;
-  font-size: 30px;
-}
 
 a {
   color: #0066FF;
