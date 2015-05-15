@@ -33,6 +33,7 @@
   - The app runs on index.html and it is styles using CSS with the files contained in the /styles folder.
   - Limitations and known issues: The application is optimized and tested on Google Chrome.
   The only known bug on Firefox and Safari on Macintosh is having to reload the app the very frst time that the page has loaded. The bug does not occur in local, so it could be related to the Firebase hosting.
+  The flow and interaction and clicks in the first part of the game are not the best UX experience, and could use a review.
 
 * **Colophon**
   - This app was developed by Valeria Graffeo as first project assignment in the Web Develoment Immersive Course at General Assembly Boston in May 2015.
