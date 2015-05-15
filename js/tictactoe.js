@@ -156,7 +156,7 @@ Tictactoe.clearGame = function() {
 // First slide, welcome and set the bet
 Tictactoe.letsBet = function() {
   $('.firstscreen').show();
-  $('.firstscreen').prepend("<p><h1><strong>Welcome!</strong></h1></p><p>Let's play, but first,<br />let's make things more interesting...<br />Let's bet something.</p>");
+  $('.firstscreen').prepend("<p><h1><strong>Welcome!</strong></h1></p><p>Let's play, but first,<br />let's make things more interesting...<br />Let's bet something.<br /><br /><br /></p><p>Type it down here<br /> and press enter</p>");
   $('#bet').show();
   $('.firstscreen').append('<div id="firsttothree"></div>');
   $('#firsttothree').append("* The player who wins 3 games is the winner.");
@@ -172,7 +172,7 @@ Tictactoe.letsBet = function() {
 // Second slide, deciding who goes first
 Tictactoe.whoGoesFirst = function() {
 $('.firstscreen').unbind();
-$('.firstscreen').html("<p>OK, you are playing for<br /><h3>" + this.bet + "!!!</h3>WOW, that's a good one! <br />Who goes first?<br />To make it fair, let's flip a coin.</p>" );
+$('.firstscreen').html("<p>OK, you are playing for<br /><h3>" + this.bet + "!!!</h3>WOW, that's a good one! <br />Who goes first?<br />To make it fair, flip the coin by clicking it.</p>" );
 $('.firstscreen').append('<div id="coin"></div>');
 $('.firstscreen').append('<div id="close"></div>');
 $('#coin').addClass('animated pulse');
@@ -205,8 +205,7 @@ Tictactoe.flipcoin = function() {
     $('#coin').html('<h2><br />' + win + '</h2>');
     }, 1500);
 
-
-  $('#close').html("OK, let's play! <br />Click to start.");
+  $('#close').html("OK, let's play! <br />Click here to start.");
   $('#close').on("click", function() {
     $('.firstscreen').hide();
     $('.firstscreen').unbind();
@@ -219,10 +218,10 @@ Tictactoe.champion = function() {
 
   if (Tictactoe.xScore === 3) {
     $('.firstscreen').show();
-    $('.firstscreen').html('<p><br /><br /><h1>REMATCH?!?<br />WHAT?<br />NO REMATCH!<br />"O"<br /> You owe me<br />' + this.bet + '!</h1></p>');
+    $('.firstscreen').html('<p><br /><br /><h1>REMATCH?!?<br />WHAT?<br />NO REMATCH!<br /><br />"O"<br /> You owe me<br />' + this.bet + '!</h1></p>');
   } else if (Tictactoe.oScore === 3) {
     $('.firstscreen').show();
-    $('.firstscreen').html('<p><br /><br /><h1>REMATCH?!?<br />WHAT?<br />NO REMATCH!<br />"X"<br /> You owe me<br />' + this.bet + '!</h1></p>');
+    $('.firstscreen').html('<p><br /><br /><h1>REMATCH?!?<br />WHAT?<br />NO REMATCH!<br /><br />"X"<br /> You owe me<br />' + this.bet + '!</h1></p>');
   }
 $('.firstscreen').on("click", function() {
   location.reload();
