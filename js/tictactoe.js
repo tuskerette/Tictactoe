@@ -11,10 +11,10 @@ Tictactoe.gameOver = false;
 Tictactoe.xScore = 0;
 Tictactoe.oScore = 0;
 
-// Set a counter for the number of games, and the newPlayer variable
+// Set a counter for the number of games, and the newFirstPlayer variable
 // to tell who is the starting player in the games after the first one.
 Tictactoe.numOfGames = 0;
-Tictactoe.newPlayer = "";
+Tictactoe.newFirstPlayer = "";
 
 // Set a variable to store the bet
 Tictactoe.bet = "";
@@ -68,11 +68,11 @@ Tictactoe.game = function () {
 // Function to decide who starts. It alternates between games
 Tictactoe.whoStarts = function() {
     if (Tictactoe.numOfGames % 2 === 0) {
-      Tictactoe.newPlayer = "X";
+      Tictactoe.newFirstPlayer = "X";
       } else {
-      Tictactoe.newPlayer = "O";
+      Tictactoe.newFirstPlayer = "O";
     }
-    return Tictactoe.newPlayer;
+    return Tictactoe.newFirstPlayer;
   }
 
 
@@ -153,6 +153,10 @@ Tictactoe.clearGame = function() {
 
 
 
+
+
+
+
 // First slide, welcome and set the bet
 Tictactoe.letsBet = function() {
   $('.firstscreen').show();
@@ -169,10 +173,36 @@ Tictactoe.letsBet = function() {
 };
 
 
+Tictactoe.randomAdjectiveGenerator = function() {
+  Tictactoe.adj = "";
+
+  if(this.bet === "A BEER") {
+    this.adj = "a refreshing choice";
+  } else if (this.bet === "LUNCH") {
+    this.adj = "a big one";
+  } else if (this.bet === "A HAMBURGER") {
+    this.adj = "a juicy one";
+  } else if (this.bet === "A PIZZA") {
+    this.adj = "something";
+  } else if (this.bet === "AN ICE CREAM") {
+    this.adj = "something else";
+  } else if (this.bet === "A BOTTLE OF WINE") {
+    this.adj = "an interesting choice";
+  } else if (this.bet === "LOTTERY TICKETS") {
+    this.adj = "one of a kind";
+  } else if (this.bet === "VALERIA'S CAT") {
+    this.adj = "Brucey";
+  } else {
+    this.adj = "a good one";
+  }
+};
+
+
 // Second slide, deciding who goes first
 Tictactoe.whoGoesFirst = function() {
 $('.firstscreen').unbind();
-$('.firstscreen').html("<p>OK, you are playing for<br /><h3>" + this.bet + "!!!</h3>WOW, that's a good one! <br />Who goes first?<br />To make it fair, flip the coin by clicking it.</p>" );
+Tictactoe.randomAdjectiveGenerator();
+$('.firstscreen').html("<p>OK, you are playing for<br /><h3>" + this.bet + "!!!</h3>WOW, that's " + this.adj + "! <br />Who goes first?<br />To make it fair, flip the coin by clicking it.</p>" );
 $('.firstscreen').append('<div id="coin"></div>');
 $('.firstscreen').append('<div id="close"></div>');
 $('#coin').addClass('animated pulse');
@@ -183,7 +213,6 @@ $('#coin').on("click", function() {
   Tictactoe.flipcoin();
   });
 };
-
 
 
 // Third slide, flipping the coin
